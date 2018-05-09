@@ -36,13 +36,13 @@ function capitalizeFirstLetter(string) {
 
 fs.readdir('./images', (err, files) => {
   files.forEach(async filePath => {
-    const fileName = filePath.split('.')[0];
+    const fileName = capitalizeFirstLetter(filePath.split('.')[0]);
     const data = fs.readFileSync(`./images/${filePath}`, 'utf8');
     const transformedSVG = await svg2jsx(data);
     fs.writeFileSync(
       `./results/${fileName}.jsx`,
       template({
-        fileName: capitalizeFirstLetter(fileName),
+        fileName,
         svgData: transformedSVG
           .replace('<svg', '<IconBase {...props}')
           .replace('</svg>', '</IconBase>')

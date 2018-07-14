@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@balajmarius/svg2jsx": "^1.1.0"
+    "@balajmarius/svg2jsx": "^1.1.0",
+    "commander": "^2.16.0"
   },
   "devDependencies": {},
   "scripts": {
